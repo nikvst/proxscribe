@@ -1,0 +1,11 @@
+# docker-compose файл для запуска сервиса в docker swarm
+version: '3'
+
+services:
+    app:
+        build: .
+        ports:
+            - "80:80"
+        depends_on:
+            - redis
+            - mongodb
