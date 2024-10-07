@@ -53,6 +53,5 @@ class Client(models.Model):
     @property
     def connection_url(self):
         return self.inbound.connection_url_template.format(
-            connection_name=quote(self.inbound.remark),
-            **self.settings
+            connection_name=quote(self.inbound.remark), **self.settings
         )

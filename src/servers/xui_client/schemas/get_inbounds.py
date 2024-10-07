@@ -14,7 +14,7 @@ class SettingsClientBaseSchema(BaseModel):
     subId: str
     totalGB: int
 
-    model_config = ConfigDict(extra='allow')
+    model_config = ConfigDict(extra="allow")
 
 
 class VLESSSettingsClientSchema(SettingsClientBaseSchema):

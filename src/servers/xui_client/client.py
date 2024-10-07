@@ -79,8 +79,13 @@ def delete_client(client: Client):
     token = login(client.inbound.server)
     cookies = {"3x-ui": token}
 
+    if client.inbound.protocol == "vless":
+        client_id = client.settings["id"]
+    else:
+        client_id = client.email
+
     response = httpx.post(
-        f"{client.inbound.server.api_url}panel/inbound/{client.inbound.xui_id}/delClient/{client.xui_id}",
+        f"{client.inbound.server.api_url}panel/inbound/{client.inbound.xui_id}/delClient/{client_id}",
         cookies=cookies,
         timeout=30,
     )

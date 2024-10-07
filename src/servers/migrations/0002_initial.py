@@ -6,28 +6,36 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('servers', '0001_initial'),
+        ("servers", "0001_initial"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='client',
-            name='user',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='clients', to=settings.AUTH_USER_MODEL),
+            model_name="client",
+            name="user",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="clients",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
         migrations.AddField(
-            model_name='client',
-            name='inbound',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='servers.inbound'),
+            model_name="client",
+            name="inbound",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to="servers.inbound"
+            ),
         ),
         migrations.AddField(
-            model_name='inbound',
-            name='server',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='servers.server'),
+            model_name="inbound",
+            name="server",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to="servers.server"
+            ),
         ),
     ]

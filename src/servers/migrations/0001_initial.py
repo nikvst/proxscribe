@@ -4,45 +4,70 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Client',
+            name="Client",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('email', models.CharField(blank=True, max_length=1024)),
-                ('enable', models.BooleanField(default=True)),
-                ('description', models.TextField(blank=True)),
-                ('settings', models.JSONField(blank=True, default=dict)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("email", models.CharField(blank=True, max_length=1024)),
+                ("enable", models.BooleanField(default=True)),
+                ("description", models.TextField(blank=True)),
+                ("settings", models.JSONField(blank=True, default=dict)),
             ],
         ),
         migrations.CreateModel(
-            name='Inbound',
+            name="Inbound",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('xui_id', models.IntegerField(blank=True, null=True)),
-                ('remark', models.CharField(blank=True, max_length=1024)),
-                ('protocol', models.CharField(max_length=50)),
-                ('priority', models.IntegerField(default=1000)),
-                ('connection_url_template', models.CharField(blank=True, max_length=4096)),
-                ('description', models.TextField(blank=True)),
-                ('client_default_config', models.JSONField(blank=True, default=dict)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("xui_id", models.IntegerField(blank=True, null=True)),
+                ("remark", models.CharField(blank=True, max_length=1024)),
+                ("protocol", models.CharField(max_length=50)),
+                ("priority", models.IntegerField(default=1000)),
+                (
+                    "connection_url_template",
+                    models.CharField(blank=True, max_length=4096),
+                ),
+                ("description", models.TextField(blank=True)),
+                ("client_default_config", models.JSONField(blank=True, default=dict)),
             ],
         ),
         migrations.CreateModel(
-            name='Server',
+            name="Server",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=255)),
-                ('api_url', models.URLField(max_length=2000)),
-                ('description', models.TextField(blank=True)),
-                ('username', models.CharField(max_length=255)),
-                ('password', models.CharField(blank=True, max_length=255)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=255)),
+                ("api_url", models.URLField(max_length=2000)),
+                ("description", models.TextField(blank=True)),
+                ("username", models.CharField(max_length=255)),
+                ("password", models.CharField(blank=True, max_length=255)),
             ],
         ),
     ]
