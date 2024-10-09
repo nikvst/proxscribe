@@ -34,6 +34,6 @@ urlpatterns = [
     ),
     path("main/", main_page_view, name="main"),
     path(
-        "subscription/<uuid:subscription_id>/", subscription_view, name="subscription"
+        "subscriptions/<uuid:subscription_id>/", subscription_view, name="subscription"
     ),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
