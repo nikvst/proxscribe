@@ -22,7 +22,7 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 
 
-from servers.views.subscription import subscription_view
+from servers.views.subscriptions import subscription_view
 from users.views.main_page import main_page_view
 
 urlpatterns = [
@@ -34,6 +34,6 @@ urlpatterns = [
     ),
     path("main/", main_page_view, name="main"),
     path(
-        "subscription/<uuid:subscription_id>/", subscription_view, name="subscription"
+        "subscriptions/<uuid:subscription_id>/", subscription_view, name="subscriptions"
     ),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
