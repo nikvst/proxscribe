@@ -12,7 +12,7 @@ class ClientCreator:
 
     @atomic
     def do(self):
-        client_id, email = add_client(self.inbound)
+        client_id, email = add_client(self.inbound, self.user.xui_user_id)
         client = Client.objects.create(
             inbound=self.inbound,
             user=self.user,

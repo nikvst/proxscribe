@@ -18,9 +18,9 @@ class ClientInline(admin.TabularInline):
 @admin.register(User)
 class UserAdmin(UserAdmin):
     inlines = (ClientInline,)
-
+    list_display = ("username", "xui_user_id", "first_name", "last_name", "is_staff")
     fieldsets = (
-        (None, {"fields": ("username", "password", "subscription_id")}),
+        (None, {"fields": ("username", "password", "subscription_id", "xui_user_id")}),
         (
             _("Personal info"),
             {"fields": ("first_name", "last_name", "email", "description")},

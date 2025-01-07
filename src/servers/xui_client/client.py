@@ -41,9 +41,8 @@ def get_inbounds(server: Server) -> list[InboundSchema]:
     return InboundsResponseSchema.model_validate_json(response.content).obj
 
 
-def add_client(inbound: Inbound):
+def add_client(inbound: Inbound, email: str):
     client_id = str(uuid.uuid4())
-    email = str(uuid.uuid4())[:8]
 
     client_data = {
         **inbound.client_default_config,

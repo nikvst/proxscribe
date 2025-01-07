@@ -8,7 +8,9 @@ from servers.xui_client.client import add_client, delete_client
 @receiver(pre_save, sender=Client)
 def create_client_in_xui(sender, instance: Client, **kwargs: dict):
     if not instance.email and instance.inbound.unmanaged is False:
-        client_id, email, settings = add_client(instance.inbound)
+        client_id, email, settings = add_client(
+            instance.inbound, instance.user.xui_user_id
+        )
         instance.xui_id = client_id
         instance.description += f"x_ui email: {email}"
         instance.settings = settings
