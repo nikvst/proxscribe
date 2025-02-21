@@ -6,6 +6,8 @@ import users.models
 import uuid
 from django.db import migrations, models
 
+import app.utils.username_generator
+
 
 class Migration(migrations.Migration):
     initial = True
@@ -99,7 +101,14 @@ class Migration(migrations.Migration):
                 ),
                 ("description", models.TextField(blank=True)),
                 ("subscription_id", models.UUIDField(default=uuid.uuid4, unique=True)),
-                ("xui_user_id", models.CharField(max_length=128, unique=True)),
+                (
+                    "xui_user_id",
+                    models.CharField(
+                        default=app.utils.username_generator.generate_username,
+                        max_length=128,
+                        unique=True,
+                    ),
+                ),
                 (
                     "groups",
                     models.ManyToManyField(

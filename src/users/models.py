@@ -16,6 +16,8 @@ class UserManager(DjangoUserManager):
 class User(AbstractUser):
     description = models.TextField(blank=True)
     subscription_id = models.UUIDField(default=uuid.uuid4, unique=True)
-    xui_user_id = models.CharField(max_length=128, unique=True)
+    xui_user_id = models.CharField(
+        max_length=128, unique=True, default=generate_username
+    )
 
     objects = UserManager()
